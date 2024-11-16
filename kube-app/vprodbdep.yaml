@@ -42,4 +42,5 @@ spec:
       initContainers:
         - name: busybox
           image: busybox:latest
-          command: ["rm", "-rf", "/var/lib/mysql/lost+found"]
+          command: ["sh", "-c", "rm -rf /var/lib/mysql/lost+found"]
+          timeout: 30s
