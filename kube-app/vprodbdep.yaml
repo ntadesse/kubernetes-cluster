@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
        - name: vprodb
-         image: ntaddese/vprofiledb:V1
+         image: ntaddese/vprofiledb:latest
 #         args:
 #           - "--ignore-db-dir=lost+found"
          volumeMounts:
@@ -36,6 +36,8 @@ spec:
       volumes:
         - name: vpro-db-data
           awsElasticBlockStore:
+            apiVersion: v1
+            kind: PersistentVolume
             volumeID: vol-03169031a31838816
             fsType: ext4
       initContainers:
